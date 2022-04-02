@@ -57,7 +57,7 @@ class DatabaseHelper {
     var database = await db;
 
     String sql = "DELETE FROM $tableName WHERE id = $id ";
-    await database.execute(sql);
+    await database.delete(tableName, where: "id = ?", whereArgs: [id]);
     return true;
   }
 
